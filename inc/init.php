@@ -235,7 +235,7 @@ add_action('admin_head', 'fix_svg');
 add_action('wp_head', function () {
 ?>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5RBSVS167"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNVCT22KTR"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -243,7 +243,7 @@ add_action('wp_head', function () {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-        gtag('config', 'G-V5RBSVS167');
+        gtag('config', 'G-CNVCT22KTR');
     </script>
 <?php
 });
