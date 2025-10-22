@@ -1,0 +1,14 @@
+/* buttons */
+
+.btn {
+  background-color: var(--c-blue-900);
+  padding: var(--spacing-200) var(--spacing-300);
+  border-radius: var(--br-20);
+  color: var(--c-white);
+  transition: transform 0.3s ease-in, background-color 0.3s ease-in;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: var(--c-blue-700);
+  }
+}

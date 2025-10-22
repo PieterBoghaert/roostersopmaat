@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-24T10:39:08+00:00\n"
+"PO-Revision-Date: 2023-08-24 12:40+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Domain: hondennamen\n"
+
+#: front-page.php:7
+msgid "Vind een hondennaam voor jouw puppy"
+msgstr ""
+
+#: front-page.php:8
+msgid ""
+"Proficiat met jouw nieuwe puppy! Een hondennaam vinden is niet eenvoudig. "
+"Wij helpen je graag met enkele ideeen."
+msgstr ""
+
+#: front-page.php:44 page-alfabetisch.php:91 single.php:218
+msgid "message-send"
+msgstr "Bericht verzonden"
+
+#: front-page.php:45 page-alfabetisch.php:92 single.php:219
+msgid "thx for your message, we received it well"
+msgstr "Bedankt voor uw bericht, we hebben het goed ontvangen"
+
+#: front-page.php:45 page-alfabetisch.php:92 single.php:219
+msgid "we contact you asap"
+msgstr "We contacteren je zo snel mogelijk"
+
+#: front-page.php:48 page-alfabetisch.php:95 single.php:222
+msgid "close"
+msgstr "sluiten"
+
+#: front-page.php:60 front-page.php:61
+msgid "emailaddress"
+msgstr "E-mailadres"
+
+#: front-page.php:63
+msgid "subscribe"
+msgstr "inschrijven"
+
+#: header.php:121
+msgid "Geslacht"
+msgstr ""
+
+#: header.php:137
+msgid "Man"
+msgstr ""
+
+#: header.php:141
+msgid "Vrouw"
+msgstr ""
+
+#: header.php:145
+msgid "Alle"
+msgstr ""
+
+#: page-alfabetisch.php:9
+msgid "Vind een hondennaam voor "
+msgstr ""
+
+#: page-alfabetisch.php:11
+msgid "Vind een hondennaam voor jouw puppy die begint met "
+msgstr ""
+
+#: page-alfabetisch.php:15
+msgid ""
+"Proficiat met jouw nieuwe puppy! Een hondennaam vinden is niet eenvoudig. "
+"Wij helpen je graag met enkele ideeën."
+msgstr ""
+
+#: page-alfabetisch.php:106 page-alfabetisch.php:107 single.php:233
+#: single.php:234
+msgid "dogname"
+msgstr "Hondennaam"
+
+#: page-alfabetisch.php:109
+msgid "send"
+msgstr "Verzenden"
+
+#: single.php:106
+msgid "Andere namen errond zijn"
+msgstr ""
+
+#: templates/namen-gender.php:38
+msgid "Geen honden gevonden die beginnen met "
+msgstr ""
+
+#: src/js/components/formHandler.js:57
+msgid "moet een geldig mailadres zijn"
+msgstr ""
+
+#: src/js/components/formHandler.js:81
+msgid " is verplicht"
+msgstr ""

@@ -1,0 +1,27 @@
+{
+  "name": "pl/info",
+  "title": "Info blocks",
+  "description": "",
+  "style": ["file:./style.min.css"],
+  "script": ["file:./script.js"],
+  "icon": "block-default",
+  "keywords": ["info"],
+  "category": "roostersopmaat",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "className": true,
+    "mode": false,
+    "spacing": {
+      "margin": ["top", "bottom"],
+      "padding": false,
+      "blockGap": false
+    },
+    "customSpacingSize": false
+  },
+  "attributes": {}
+}

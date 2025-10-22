@@ -1,0 +1,66 @@
+.swiper-home img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-home {
+  .swiper-wrapper {
+    max-block-size: 80dvh;
+    min-block-size: 600px;
+  }
+  .swiper-slide {
+    height: auto;
+
+    &::before {
+      content: "";
+      background: linear-gradient(
+        to bottom,
+        hsl(from var(--c-black) h s calc(l - 10)),
+        hsl(from var(--c-black) h s calc(l - 20))
+      );
+      opacity: 0.3;
+      inset: 0;
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  isolation: isolate;
+}
+
+.swiper-logo {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    white 10%,
+    white 90%,
+    transparent 100%
+  );
+  width: 100%;
+  height: 100%;
+
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    backdrop-filter: blur(50px);
+    padding-inline: 1em;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-block-size: 80px;
+      object-fit: cover;
+      transition: opacity 0.6s ease-out;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "pl/hero-slider",
+  "title": "Hero Slider blocks",
+  "description": "",
+  "style": ["file:./style.min.css"],
+  "script": ["file:./script.js"],
+  "icon": "block-default",
+  "keywords": ["slider", "carousel", "image"],
+  "category": "roostersopmaat",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "className": true,
+    "mode": false,
+    "spacing": {
+      "margin": ["bottom"],
+      "padding": false,
+      "blockGap": false
+    },
+    "customSpacingSize": false
+  },
+  "attributes": {}
+}

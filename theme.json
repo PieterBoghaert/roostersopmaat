@@ -1,0 +1,116 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "color": {
+      "palette": [
+        {
+          "slug": "blue-900",
+          "color": "oklch(38.448% 0.12541 254.942)",
+          "name": "Blue 900"
+        },
+        {
+          "slug": "blue-700",
+          "color": "oklch(49.442% 0.13369 254.037)",
+          "name": "Blue 700"
+        },
+        {
+          "slug": "blue-400",
+          "color": "oklch(70.492% 0.13873 228.852)",
+          "name": "Blue 400"
+        },
+        {
+          "slug": "light-grey",
+          "color": "oklch(97.015% 0.00011 271.152)",
+          "name": "Light Grey"
+        }
+      ]
+    },
+
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFace": [
+            {
+              "fontFamily": "Barlow",
+              "fontWeight": "300",
+              "fontStyle": "normal",
+              "src": "file:./assets/fonts/barlow-v13-latin-300.woff2"
+            },
+            {
+              "fontFamily": "Barlow",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "src": "file:./assets/fonts/barlow-v13-latin-regular.woff2"
+            },
+            {
+              "fontFamily": "Barlow",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "src": "file:./assets/fonts/barlow-v13-latin-700.woff2"
+            }
+          ],
+          "fontFamily": "Barlow, sans-serif",
+          "slug": "barlow",
+          "name": "Barlow"
+        }
+      ],
+      "textDecoration": true
+    },
+    "spacing": {
+      "units": ["rem"],
+      "defaultSpacingSizes": false,
+      "customSpacingSize": false,
+      "spacingSizes": [
+        {
+          "slug": "small",
+          "size": "clamp(1.5rem, 2vw + 1rem, 2.5rem)",
+          "name": "Small"
+        },
+        {
+          "slug": "medium",
+          "size": "clamp(2.5rem, 2vw + 1.5rem, 3.5rem)",
+          "name": "Medium"
+        },
+        {
+          "slug": "large",
+          "size": "clamp(3rem, 2vw + 2rem, 4rem)",
+          "name": "Large"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "blocks": {
+      "pl/partner-slider": {
+        "spacing": {
+          "margin": {
+            "top": "var(--wp--preset--spacing--small)",
+            "bottom": "var(--wp--preset--spacing--small)"
+          }
+        }
+      },
+      "pl/hero-slider": {
+        "spacing": {
+          "margin": {
+            "top": "var(--wp--preset--spacing--small)",
+            "bottom": "var(--wp--preset--spacing--small)"
+          }
+        }
+      }
+    },
+    "elements": {
+      "heading": {},
+      "link": {
+        "typography": { "textDecoration": "none" },
+        ":hover": { "typography": { "textDecoration": "none" } }
+      }
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--barlow)"
+    }
+  }
+}

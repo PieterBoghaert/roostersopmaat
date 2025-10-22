@@ -1,0 +1,83 @@
+@keyframes fadeInUp {
+  from {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleDown {
+  100% {
+    transform: scale(0.75);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(45% 20% 45% 20%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+/* only when the user didn't disable motion */
+@media (prefers-reduced-motion: no-preference) {
+  .site-content {
+    // .info {
+    //   img {
+    //     view-timeline-name: --revealing-image;
+    //     view-timeline-axis: block;
+    //     animation: linear reveal both;
+    //     animation-timeline: --revealing-image;
+    //     animation-range: entry 25% cover 50%;
+    //   }
+    // }
+
+    .info-block {
+      opacity: 0;
+      transform: translateY(5rem);
+
+      &.in-view {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+    }
+
+    .process-grid {
+      .card {
+        opacity: 0;
+        transform: translateY(5rem);
+        // view-timeline-name: --fadeInUpBlock;
+        // view-timeline-axis: block;
+        // animation-name: fadeInUp;
+        // animation-duration: 1s; /* needed as base timing */
+        // animation-timing-function: cubic-bezier(0.64, 0.04, 0.26, 0.87);
+        // animation-timeline: --fadeInUpBlock;
+        // animation-range: entry 15% cover 50%;
+        // animation-fill-mode: forwards;
+        // animation-iteration-count: 1;
+
+        &.in-view {
+          animation: fadeInUp 0.8s ease forwards;
+        }
+
+        &:nth-of-type(1) {
+          animation-delay: 0;
+        }
+
+        &:nth-of-type(2) {
+          animation-delay: 0.25s;
+        }
+
+        &:nth-of-type(3) {
+          animation-delay: 0.5s;
+        }
+      }
+    }
+  }
+}

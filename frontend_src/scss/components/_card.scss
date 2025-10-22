@@ -1,0 +1,62 @@
+.card {
+  background-color: var(--c-light-grey);
+  color: var(--c-blue-700);
+  backdrop-filter: blur(10px);
+  //border-radius: 16px;
+  overflow: clip;
+  container: card / inline-size;
+  transition: all 0.3s ease-in;
+  --img-scale: 1;
+  &__inner {
+    figure {
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      margin: 0;
+    }
+  }
+
+  &__body {
+    padding: var(--spacing-300);
+  }
+}
+
+@media (hover: hover) {
+  .card {
+    figure img {
+      transition: scale 0.3s ease-in;
+      scale: var(--img-scale);
+    }
+
+    &:has(:hover, :focus) {
+      --img-scale: 1.1;
+      //0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+      box-shadow: hsl(from var(--c-blue-900) h s l / 0.16) 0px 3px 6px,
+        hsl(from var(--c-blue-900) h s l / 0.06) 0px 3px 6px;
+    }
+  }
+}
+
+// @container card (max-width: 400px) {
+//   .card__inner {
+//     display: grid;
+//     grid-template-columns: 100px 1fr;
+//     gap: var(--spacing-200);
+//     block-size: 100%;
+
+//     figure {
+//       inline-size: 100%;
+//       block-size: 100%;
+//       overflow: clip;
+
+//       img {
+//         block-size: 100%;
+//         aspect-ratio: 1;
+//         object-fit: cover;
+//       }
+//     }
+//   }
+
+//   .card__body {
+//     padding-inline-start: 0;
+//   }
+// }

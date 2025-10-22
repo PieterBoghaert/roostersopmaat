@@ -1,0 +1,106 @@
+@use "../util/" as u;
+
+@layer typography {
+  // @font-face {
+  //   font-family: "Gidole";
+  //   src: local("Gidole"),
+  //     url("./../assets/fonts/Gidole-Regular.woff2") format("woff2");
+  //   font-weight: 400;
+  // }
+
+  :root {
+    --fs-64: calc(64 / 16 * 1rem);
+    --fs-48: calc(48 / 16 * 1rem);
+    --fs-40: calc(39.81 / 16 * 1rem);
+    --fs-33: calc(33.18 / 16 * 1rem);
+    --fs-29: calc(29 / 16 * 1rem);
+    --fs-25: calc(25.63 / 16 * 1rem);
+    --fs-24: calc(24 / 16 * 1rem);
+    --fs-22: calc(22 / 16 * 1rem);
+    --fs-16: 1rem;
+    --fs-14: calc(14 / 16 * 1rem);
+    --fs-12: calc(12 / 16 * 1rem);
+
+    --font-size-h1: clamp(var(--fs-33), 1rem + 2vw, var(--fs-40));
+    --font-size-h4: clamp(var(--fs-22), 1rem + 2vw, var(--fs-25));
+    --font-size-p: var(--fs-16);
+  }
+
+  body {
+    font-size: var(--font-size-p);
+    font-family: var(--wp--preset--font-family--barlow);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  p {
+    letter-spacing: 0.2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    text-wrap: balance;
+    line-height: normal;
+  }
+
+  :is(h1, h2, h3) {
+    font-family: var(--wp--preset--font-family--barlow);
+    color: var(--c-blue-900);
+  }
+
+  h1,
+  .h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    color: var(--c-slate-900);
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-block-end: var(--spacing-300);
+    font-size: clamp(var(--fs-25), 1.25rem + 1vw, var(--fs-29));
+  }
+
+  h3 {
+    font-size: var(--fs-24);
+  }
+
+  h4 {
+    font-size: var(--font-size-h4);
+  }
+
+  p {
+    //max-inline-size: 50ch;
+  }
+
+  p + p {
+    margin-block-start: var(--spacing-300);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--c-slate-500);
+  }
+
+  small {
+    font-size: var(--fs-12);
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  .static-pages {
+    h2 {
+      margin-block-end: var(--spacing-300);
+
+      ~ p {
+        margin-block-end: var(--spacing-300);
+      }
+    }
+  }
+}
