@@ -1,15 +1,6 @@
 <?php
 
 /**
- * Load text domain for translations.
- */
-// add_action('init', 'theme_language_setup', 20);
-// function theme_language_setup()
-// {
-//     load_theme_textdomain('roostersopmaat', get_template_directory() . '/languages');
-// }
-
-/**
  * Register the menu locations.
  */
 register_nav_menus(
@@ -36,14 +27,17 @@ function add_theme_settings()
     add_theme_support('html5', array('search-form', 'navigation-widgets'));
     add_theme_support('appearance-tools');
 
+    add_theme_support('editor-styles');
+    add_theme_support('align-wide');
+    add_theme_support('wp-block-styles');
+
     global $content_width;
     if (!isset($content_width)) {
         $content_width = 1920;
     }
 
     // Add support for editor styles.
-    add_theme_support('post-thumbnails', 'editor-styles', 'disable-custom-font-sizes');
-    add_editor_style('editor-styles.css');
+    add_theme_support('disable-custom-font-sizes');
 }
 
 add_action('enqueue_block_editor_assets', function () {
@@ -58,25 +52,19 @@ add_action('enqueue_block_editor_assets', function () {
         // Swiper CSS
         wp_enqueue_style(
             'swiper-css',
-            'https://unpkg.com/swiper/swiper-bundle.min.css',
+            'https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.css',
             [],
-            '11.0.0'
+            '12.1.2'
         );
 
         // Swiper JS
-        wp_enqueue_script(
-            'swiper-js',
-            'https://unpkg.com/swiper/swiper-bundle.min.js',
-            [],
-            '11.0.0',
-            true
-        );
+        wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.js', [], '12.1.2');
     }
 
-    // Always enqueue your editor stylesheet
+
     wp_enqueue_style(
         'editor-custom-style',
-        get_stylesheet_directory_uri() . '/dist/style.css',
+        get_stylesheet_directory_uri() . '/dist/main.css',
         [],
         '1.0.0'
     );
@@ -92,29 +80,46 @@ function pl_register_styles()
     // Swiper CSS
     wp_enqueue_style(
         'swiper-css',
-        'https://unpkg.com/swiper/swiper-bundle.min.css',
+        'https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.css',
         [],
-        '11.0.0'
+        '12.1.2'
     );
 
-    // Swiper JS
+    // Swiper JS - load in header (false) so block scripts can depend on it
     wp_enqueue_script(
         'swiper-js',
-        'https://unpkg.com/swiper/swiper-bundle.min.js',
+        'https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.js',
         [],
-        '11.0.0',
-        true
+        '12.1.2',
+        false
     );
-    wp_register_style('main-css', get_template_directory_uri() . '/dist/style.css', array('fontawesome', 'swiper-css', 'wp-block-library'), '1.0.0');
+    wp_register_style('main-css', get_template_directory_uri() . '/dist/main.css', array('fontawesome', 'swiper-css', 'wp-block-library'), '1.0.0');
     wp_enqueue_style('main-css');
     wp_register_script('main-js', get_template_directory_uri() . '/dist/main.js', array('wp-i18n', 'swiper-js'), '1.0.0', false);
     wp_enqueue_script('main-js');
-
-    //wp_dequeue_style('wp-block-library');
-    //wp_dequeue_style('wp-block-library-theme');
-    //wp_dequeue_style('global-styles'); // This is usually where the underline comes from
 }
 
+/**
+ * Add swiper-js as a dependency for Swiper-based block scripts
+ */
+add_action('wp_print_scripts', function () {
+    global $wp_scripts;
+    if (!$wp_scripts) return;
+
+    $swiper_blocks = array('pl-hero-slider-script', 'pl-partner-slider-script', 'pl-info-script');
+
+    foreach ($swiper_blocks as $block_script) {
+        if (isset($wp_scripts->registered[$block_script])) {
+            // Add swiper-js as a dependency if not already present
+            if (!in_array('swiper-js', $wp_scripts->registered[$block_script]->deps)) {
+                $wp_scripts->registered[$block_script]->deps[] = 'swiper-js';
+            }
+        }
+    }
+}, 1);
+
+/**
+ */
 function roostersopmaat_schema_type()
 {
     $schema = 'https://schema.org/';
@@ -129,7 +134,6 @@ function roostersopmaat_schema_type()
     }
     echo 'itemscope itemtype="' . esc_url($schema) . esc_attr($type) . '"';
 }
-
 
 /* gutenberg blocks */
 
@@ -232,6 +236,7 @@ function fix_svg()
 }
 add_action('admin_head', 'fix_svg');
 
+/* Google tag manager */
 add_action('wp_head', function () {
 ?>
     <!-- Google tag (gtag.js) -->
@@ -248,7 +253,8 @@ add_action('wp_head', function () {
 <?php
 });
 
-add_filter('wp_get_attachment_image_src', 'fix_wp_get_attachment_image_svg', 10, 4);
+// TODO fix error
+//add_filter('wp_get_attachment_image_src', 'fix_wp_get_attachment_image_svg', 10, 4);
 
 function fix_wp_get_attachment_image_svg($image, $attachment_id, $size, $icon)
 {
@@ -267,6 +273,7 @@ function fix_wp_get_attachment_image_svg($image, $attachment_id, $size, $icon)
     }
     return $image;
 }
+
 
 /**
  * To make the editor a bit wider

@@ -1,4 +1,10 @@
 const initSlider = () => {
+  if (typeof Swiper === "undefined") {
+    // Retry after a short delay if Swiper isn't loaded yet
+    setTimeout(initSlider, 100);
+    return;
+  }
+
   const sliderEl = document.querySelector(".swiper-logo");
 
   if (sliderEl && !sliderEl.classList.contains("swiper-initialized")) {

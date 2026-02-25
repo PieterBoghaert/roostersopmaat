@@ -1,5 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
+const initHeroSlider = () => {
+  if (typeof Swiper === "undefined") {
+    // Retry after a short delay if Swiper isn't loaded yet
+    setTimeout(initHeroSlider, 100);
+    return;
+  }
+
   const swiperHomeEl = document.querySelector(".swiper-home");
+  if (!swiperHomeEl) return;
 
   const swiperHome = new Swiper(swiperHomeEl, {
     slidesPerView: 1,
@@ -17,4 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     loop: true,
   });
-});
+};
+
+document.addEventListener("DOMContentLoaded", initHeroSlider);

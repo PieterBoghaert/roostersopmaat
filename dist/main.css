@@ -509,9 +509,6 @@
   object-fit: cover;
 }
 
-.swiper-home {
-  isolation: isolate;
-}
 .swiper-home .swiper-wrapper {
   max-block-size: 80dvh;
   min-block-size: 600px;
@@ -527,6 +524,9 @@
   position: absolute;
   z-index: 1;
   pointer-events: none;
+}
+.swiper-home {
+  isolation: isolate;
 }
 
 .swiper-logo {

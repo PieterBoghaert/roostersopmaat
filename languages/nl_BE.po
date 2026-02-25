@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.3.2\n"
-"X-Domain: hondennamen\n"
+"X-Domain: roostersopmaat\n"
 
 #: front-page.php:7
 msgid "Vind een hondennaam voor jouw puppy"
