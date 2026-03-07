@@ -45,9 +45,9 @@
                     <?php endif; ?>
 
                     <?php if ($email): ?>
-                        <a href="mailto:<?php echo antispambot($email); ?>" class="site-header__email">
+                        <a href="mailto:<?php echo esc_attr(antispambot($email)); ?>" class="site-header__email">
                             <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-                            <span class="email-protected"><?php echo esc_html($email); ?></span>
+                            <span class="email-protected"><?php echo esc_html(antispambot($email)); ?></span>
                         </a>
                     <?php endif; ?>
                 </div>
