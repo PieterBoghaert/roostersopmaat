@@ -2,16 +2,18 @@ import "./../scss/style.scss";
 import Headroom from "headroom.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // grab an element
-  var headerEl = document.querySelector(".site-header");
-  // construct an instance of Headroom, passing the element
-  var headroom = new Headroom(headerEl);
-  // initialise
-  headroom.init();
+  if (!CSS.supports("container-type", "scroll-state")) {
+    // grab an element
+    var headerEl = document.querySelector(".site-header");
+    // construct an instance of Headroom, passing the element
+    var headroom = new Headroom(headerEl);
+    // initialise
+    headroom.init();
+  }
 
   //animation on scroll
   const animatedBlocks = document.querySelectorAll(
-    ".info-block, .process-grid .card"
+    ".info-block, .process-grid .card",
   );
 
   const observer = new IntersectionObserver(
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.15 },
   );
 
   animatedBlocks.forEach((block) => observer.observe(block));

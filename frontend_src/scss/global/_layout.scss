@@ -24,6 +24,7 @@
   html {
     color-scheme: light;
     scroll-behavior: smooth;
+    container-type: scroll-state;
   }
 
   body {
@@ -55,10 +56,19 @@
   }
 
   .site-header {
-    position: absolute;
-    inset-inline-start: 0;
     inline-size: 100%;
     z-index: 2;
+
+    position: fixed;
+    inset: 0 0 auto;
+    transition: transform 0.2s;
+    transform: translateY(0);
+
+    @supports (container-type: scroll-state) {
+      @container scroll-state(scrolled: bottom) {
+        transform: translateY(-100%);
+      }
+    }
 
     .wrapper-large {
       background-color: oklch(from var(--c-white) l c h / 0.7);
